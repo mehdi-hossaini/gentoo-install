@@ -2,9 +2,9 @@
 set -uo pipefail
 
 # Fix for newer Stage3 tarballs which expect these variables to be set.
-: "${DEBUGINFOD_URLS:=}"
-: "${DEBUGINFOD_IMA_CERT_PATH:=}"
-
+# We must EXPORT them so they are visible inside the chroot environment.
+export DEBUGINFOD_URLS=""
+export DEBUGINFOD_IMA_CERT_PATH=""
 
 ################################################
 # Initialize script environment
